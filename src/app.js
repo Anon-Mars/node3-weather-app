@@ -215,7 +215,7 @@ if (currentLiveExample === 20) {
                 return
             }
 
-            forecast.forecastD(latitude, longitude, (error, {description, temperature, feelsLike} = {}) => {
+            forecast.forecastD(latitude, longitude, (error, {description, temperature, feelsLike, humidity} = {}) => {
 
                 if (error) {
                     res.send({
@@ -231,7 +231,8 @@ if (currentLiveExample === 20) {
                     placeName,
                     description,
                     temperature,
-                    feelsLike
+                    feelsLike,
+                    humidity
                 })
             })
         })
