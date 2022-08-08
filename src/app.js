@@ -102,6 +102,7 @@ if (currentLiveExample === 20) {
     const forecast = require('./Utils/forecast')
 
     const app = express()
+    const port = process.env.PORT || 3000 // the live port for Heroku to work on or locally if Heroku fails
 
     // Setup handlebars engine and views location
     app.set('view engine', 'hbs')
@@ -265,9 +266,9 @@ if (currentLiveExample === 20) {
         })
     })
 
-    app.listen(3000, () => {
+    app.listen(port, () => { // passing the port here to run on Heroku or locally
 
-        console.log('Server is up on port 3000')
+        console.log('Server is up on port ' + port)
     })
 
     //---------------------------------------------------------------------------------------
@@ -293,7 +294,19 @@ if (currentLiveExample === 20) {
 
 //---------------------------------------------------------------------------------------
 
-    // Next example (21) will be in public/js/app.js
+    // Next examples (21 - 24) will be in public/js/app.js
     // Note that examples in public/js/app.js are still ran from here in terminal, that file only handles user interface and inputs
+
+//---------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------
+
+    // Following the tutorial of Heroku and Git, the next needed change is in package.json
+    // we need to edit our script to make Heroku able to run our app:
+    // "scripts": {
+    // "start": "node src/app.js" // this is where Heroku is goinf to start running from
+    // }
+
+    // this edit allows us to run locally as well by typing this command: npm run start
 
 //---------------------------------------------------------------------------------------

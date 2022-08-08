@@ -122,7 +122,8 @@ if (currentLiveExample === 24) {
         messageOne.textContent = 'Loading...'
         messageTwo.textContent = '' // clear after each search submit
 
-        const url = 'http://localhost:3000/weather?address=' + location
+        // * note here we removed our local host url, and that's in order to make it up and running on any port either Heroku or local
+        const url = '/weather?address=' + location
         fetch(url).then((response) => {
             response.json().then((data) => {
                 if (data.error) {
