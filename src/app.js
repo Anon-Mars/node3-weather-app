@@ -310,3 +310,35 @@ if (currentLiveExample === 20) {
     // this edit allows us to run locally as well by typing this command: npm run start
 
 //---------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------
+
+    // To shorten our run comman of nodemon src/app.js -e js,hbs, the next needed change is in package.json
+    // we need to edit our script to make a shorter run command:
+    // "scripts": {
+    // "start": "node src/app.js" // this is where Heroku is goinf to start running from
+    // "dev" : "nodemon src/app.js -e js,hbs" <----- this new dev command in script shortens the run command, note that this does not effect Heroku server
+    // }
+
+    // The new dev command in scripts can by run like this: npm run dev
+
+//---------------------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------------------
+
+    // After getting the repository from Github, since modules are excluded by .gitignore file
+    // they can be reinstalled by npm istall which will fetch all modules from package-lock,json file
+
+    // But for global module like nodemon it cannot be found or installed same way
+    // first of all to uninstall a global module: npm uninstall -g nodemon
+    // then we install it locally related to our dev script: npm install nodemon@1.2.0 --save-dev
+
+    // this will list as a dev dependency in our script:
+    //"devDependencies": {
+    //  "nodemon": "^1.2.0"
+    // }
+
+    // The only issue is that nodemon won't start as same as the way it did which is: nodemon src/app.js -e js,hbs
+    // instead it will only work through our dev command: npm run dev
+
+//---------------------------------------------------------------------------------------
